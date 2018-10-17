@@ -1,0 +1,14 @@
+﻿@model Balbet.WEB.Models.UserViewModel
+
+<h2>Successful Sign Up</h2>
+
+@using (Html.BeginForm())
+{
+    <div>
+        @Html.DisplayForModel()
+    </div>
+    <div>
+        <input type="button" value="Back" onclick="location.href='@Url.Action("Index","Home")'">
+    </div>
+}
+

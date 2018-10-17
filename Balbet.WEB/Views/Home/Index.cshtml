@@ -1,0 +1,45 @@
+﻿@model Balbet.WEB.Models.UserViewModel
+@{
+    ViewBag.Title = "Home Page";
+}
+<script src="~/Scripts/BalbetCustomScripts/Services/apiUsersService.js"></script>
+<script src="~/Scripts/BalbetCustomScripts/UIRendering/usersTableRendering.js"></script>
+<div class="jumbotron">
+    <h1>Balbet test</h1>
+    @{
+        if (!Request.Cookies.AllKeys.Contains("login"))
+        {
+            <div class="row">
+                <div class="col-md-2"><a href="@Url.Action("Index", "SignIn")" class="btn btn-primary btn-lg">Sign In</a></div>
+                <div class="col-md-2"><a href="@Url.Action("Index", "SignUp")" class="btn btn-primary btn-lg">Sign Up</a></div>
+            </div>
+        }
+        else
+        {
+            <div class="row"><a href="@Url.Action("Index", "LogOff")" class="btn btn-primary btn-lg">LogOff</a></div>
+            <table class="table table-striped" data-name="mainTable" data-skip="10" data-skipped="0">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Login)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FirstName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LastName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Passport)
+                    </th>
+                </tr>
+                <tr class="completeRow" data-rows="maintable-row" style="display:none">
+                    <td data-cel-login="maintable-row-login"></td>
+                    <td data-cel-firstname="maintable-row-firstname"></td>
+                    <td data-cel-lastname="maintable-row-lastname"></td>
+                    <td data-cel-passport="maintable-row-passport"></td>
+                </tr>
+            </table>
+            <input type="button" data-name="loadMoreButton" value="Load more..." onclick="showLoadMoreUsers()">
+        }
+    }
+</div>

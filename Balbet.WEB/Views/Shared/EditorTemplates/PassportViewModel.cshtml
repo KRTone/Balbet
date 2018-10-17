@@ -1,0 +1,14 @@
+﻿@model Balbet.WEB.Models.PassportViewModel
+
+<div class="row">
+    <div class="col-md-2">
+        <div class="row">Seria @Html.TextBoxFor(model => model.Seria, new { maxlength = "4", style = "width:40px;" })</div>
+        <div class="row">@Html.ValidationMessageFor(model => model.Seria)</div>
+    </div>
+    <div class="col-md-2">
+        <div class="row">Code @Html.TextBoxFor(model => model.Code, new { maxlength = "6", style = "width:60px;" })</div>
+        <div class="row">@Html.ValidationMessageFor(model => model.Code)</div>
+    </div>
+</div>
+    
+

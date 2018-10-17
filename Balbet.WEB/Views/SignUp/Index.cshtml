@@ -1,0 +1,14 @@
+﻿@model Balbet.WEB.Models.UserViewModel
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div>
+        @Html.EditorForModel()
+    </div>
+    <div>
+        <input type="button" value="Back" onclick="location.href='@Url.Action("Index","Home")'">
+        <input type="submit" value="Create" />
+    </div>
+}
